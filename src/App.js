@@ -1,25 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Login from "./pages/login/Login";
+import Home from "./pages/home/Home";
+import Detalles from "./pages/detalles/Detalles";
+import Footer from "./pages/home/components/footer/Footer";
+import Search from "./pages/home/components/search/Search";
+import Registro from "./pages/registro/Registro";
+import Pagination from "./pages/home/components/pagination/Pagination";
+import Tarjeta from "./pages/home/components/Tarjeta/Tarjeta";
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Home></Home>
   );
 }
-
-export default App;

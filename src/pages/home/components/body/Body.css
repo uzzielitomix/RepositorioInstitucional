@@ -1,0 +1,212 @@
+.body
+    {
+        box-sizing: border-box;
+        background-color: #f7f7f9;
+    }
+    
+    #infobar{
+        z-index: 1;
+        cursor: pointer;
+        position: fixed;
+        border: 0px;
+        background-color: blue;
+        height: 100vh;
+        width: 30%;
+        min-width: 350px;
+        box-shadow: 2px 0px 6px rgba(0, 0, 0, 0.4);
+        left: 96%;
+    }
+    
+    #gallery_cover{
+        background-color: #fff;
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        visibility: hidden;
+    }
+    
+    #copy_1{
+        position: absolute;
+        visibility: hidden;
+        top: 0px;
+        left: -10px;
+        width: 100%;
+        height: 100%;
+        padding: 90px 60px;
+        max-width: 400px;
+    }
+    
+    #copy_2{
+        position: absolute;
+        visibility: hidden;
+        top: 0px;
+        left: -10px;
+        width: 100%;
+        height: 100%;
+        padding: 90px 60px;
+        max-width: 400px;
+    }
+    
+    #copy_3{
+        position: absolute;
+        visibility: hidden;
+        top: 0px;
+        left: -10px;
+        width: 100%;
+        height: 100%;
+        padding: 90px 60px;
+        max-width: 400px;
+    }
+    
+    .detail_copy h3{
+        font-family: 'Memphis LT W01 Medium', sans-serif;
+        font-size: 24px;
+        color: #fff;
+        line-height: 42px;
+    }
+    
+    .detail_copy p{
+        color: #fff;
+        font-family: 'Raleway', sans-serif;
+        line-height: 20px;
+        font-size: 14px;
+        margin: 50px 0px;
+    }
+    
+    .underline{
+        padding-bottom: 2px;
+        border-bottom: 2px solid #fff;
+    }
+    
+    #explore_text{
+        color: #fff;
+        font-family: "Memphis-LT-W01-Light";
+        -webkit-writing-mode: vertical-rl;
+        writing-mode: vertical-rl;
+        margin-top: 40px;
+    }
+    
+    #detail_exit{
+        z-index: 1;
+        font-size: 42px;
+        font-weight: 100;
+        color: #fff;
+        visibility: hidden;
+        position: absolute;
+        top: 25px;
+        left: 30px;
+        cursor: pointer;
+    }
+    
+    #detail_scrollarea i{
+        z-index: 1;
+        color: #fff;
+        font-size: 48px;
+        font-weight: 100;
+        position: fixed;
+        bottom: 40px;
+        right: 50px;
+        cursor: pointer;
+    }
+    
+    #detail_scrollarea{
+        visibility: hidden;
+        position: fixed;
+        left: 30%;
+        width: 70vw;
+        height: 100vh;
+        overflow-y: scroll;
+    }
+    
+    #detail_scrollarea img{
+        display: block;
+        width: 100%;
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    .nav{
+        position: fixed;
+        height: 120px;
+        padding: 20px;
+    }
+    
+    .nav img{
+        height: 100%;
+    }
+    
+    .projects{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .projects .thumbnail{
+        cursor: pointer;
+        background-color: rgb(211, 211, 211);
+        width: 200px;
+        height: 300px;
+        margin: 10px;
+        transition: all 0.25s ease-in-out;
+    }
+    
+    .projects .thumbnail:hover{
+        background-color: rgb(84, 64, 125);
+    }
+    
+    .detail_nav{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -o-flex;
+        display: -ms-flex;
+        display: flex;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        visibility: hidden;
+    }
+    
+    .detail_switch{
+        width: 50%;
+        height: 50px;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .detail_switch p{
+        font-family: "Memphis LT W01 Light";
+    }
+    
+    .detail_switch i{
+        color: #fff;
+        font-size: 52px;
+    }
+    
+    #prev_proj{
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+    
+    #next_proj{
+        background-color: rgba(255, 255, 255, 0.4);
+    }
+    
+    .detail_switch p{
+        color: #fff;
+        font-family: 'Raleway', sans-serif;
+        font-size: 16px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+        gap: 10px;
+        background-color: #2196F3;
+        padding: 10px;
+      }
+      
+      .grid-container > div {
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 1px solid black;
+        text-align: center;
+        font-size: 30px;
+      }
