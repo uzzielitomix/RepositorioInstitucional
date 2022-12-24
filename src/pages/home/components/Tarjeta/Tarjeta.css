@@ -1,17 +1,67 @@
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-}
-.card img{
-
-  width:100%
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+body {
+  color: #272727;
+  font-family: Arial, Verdana;
+  font-style: normal;
+  font-weight: 300;
 }
 
-.container {
-  padding: 2px 16px;
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+.cards .card-wrapper {
+  display: flex;
+  padding: 10px;
+}
+.cards .card-wrapper .card {
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.cards .card-wrapper .card img {
+  width: 100%;
+  height: auto;
+}
+.cards .card-wrapper .card .content {
+  padding: 15px;
+}
+.cards .card-wrapper .card .content .title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #453863;
+  letter-spacing: 1px;
+  margin: 0;
+}
+.cards .card-wrapper .card .content .title .trademark {
+  font-size: 10px;
+  position: relative;
+  top: -5px;
+}
+.cards .card-wrapper .card .content .text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+@media (min-width: 640px) {
+  body .cards .card-wrapper {
+    width: 50%;
+  }
+}
+@media (min-width: 920px) {
+  body .cards .card-wrapper {
+    width: 33.3333%;
+  }
 }

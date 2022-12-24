@@ -1,45 +1,56 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import "./Registro.css";
+import { URL_BASE } from "../../config/URL_BASE";
 export default function Registro() {
-  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [first_name, setFirstName] = useState("");
-  const [last_name, setLastName] = useState("");
-  const [apellido_materno, setApellido_materno] = useState("");
+  const [first_name, setFirst_name] = useState("");
+  const [last_name, setLast_name] = useState("");
   const [matricula, setMatricula] = useState("");
+  const [apellido_materno, setApellido_materno] = useState("");
+  const [status, setStatus] = useState("failed");
 
-
-  const data = {
-    email: email,
-    password: password,
-    first_name: first_name,
-    last_name: last_name,
-    apellido_materno: apellido_materno,
-    matricula: matricula,
+  const cleanInputs = () => {
+    setEmail("");
+    setPassword("");
+    setFirst_name("");
+    setLast_name("");
+    setMatricula("");
+    setApellido_materno("");
   };
-  function onPressLogin(e) {
+  const onSignupPressed = async (e) => {
     e.preventDefault();
-    const url =
-      "https://83fe-2806-10a6-16-70f6-205b-31c6-ce3f-f62d.ngrok.io/api/auth/signup/";
 
-    fetch(url, {
+    const url = `${URL_BASE}/auth/signup/`;
+    const data = {
+      email: email,
+      password: password,
+      first_name: first_name,
+      last_name: last_name,
+      matricula: matricula,
+      apellido_materno: apellido_materno,
+    };
+    const solicitud = await fetch(url, {
       method: "POST", // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-        alert("revisa tu correo electronico")
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }
+    });
+    const respuesta = await solicitud.json();
+    console.log("Respuesta del backend", respuesta);
+    console.log(respuesta.status);
+    if (respuesta.status === "success") {
+      setStatus("success");
+      cleanInputs();
+      alert("revisa tu correo");
+      window.location = "/";
+    } else {
+      setStatus("failed");
+      cleanInputs();
+    }
+  };
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -47,10 +58,10 @@ export default function Registro() {
     setPassword(e.target.value);
   };
   const onChangeFirstName = (e) => {
-    setFirstName(e.target.value);
+    setFirst_name(e.target.value);
   };
   const onChangeLastName = (e) => {
-    setLastName(e.target.value);
+    setLast_name(e.target.value);
   };
   const onChangeApellidoMaterno = (e) => {
     setApellido_materno(e.target.value);
@@ -103,7 +114,10 @@ export default function Registro() {
                         value={last_name}
                         onChange={onChangeLastName}
                       />
-                      <label className="input__label" htmlFor="apellido-paterno">
+                      <label
+                        className="input__label"
+                        htmlFor="apellido-paterno"
+                      >
                         Apellido Paterno
                       </label>
                     </div>
@@ -186,7 +200,6 @@ export default function Registro() {
                         checked=""
                         className="input-checkbox__field"
                         id="agree"
-          
                         tabIndex="0"
                         type="checkbox"
                       />
@@ -201,25 +214,23 @@ export default function Registro() {
                   <p></p>
                   <div className="component component--primary form__button">
                     {/**<Link to={"/login"}>*/}
-              
-                      <button
-                        className="btn btn--regular"
-                        disabled=""
-                        id="sign-up-button"
-                        tabIndex="0"
-                        type="submit"
-                        onClick={onPressLogin}
-                        
-                      >
-                        Registrar
-                      </button>{" "}
+                    <button
+                      className="btn btn--regular"
+                      disabled=""
+                      id="sign-up-button"
+                      tabIndex="0"
+                      type="submit"
+                      onClick={onSignupPressed}
+                    >
+                      Registrar
+                    </button>{" "}
                     {/**</Link>*/}
                   </div>
                 </div>
                 <div className="form__row sign-up__sign">
                   ¿Ya tienes una cuenta?
                   {/**<Link to={"/"}>*/}
-                    <a>Iniciar session</a>
+                  <a>Iniciar session</a>
                   {/**</Link>*/}
                 </div>
               </form>

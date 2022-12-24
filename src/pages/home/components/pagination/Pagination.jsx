@@ -1,6 +1,11 @@
 import "./Pagination.css";
+import { useState, useEffect } from "react";
+import ReactPaginate from "react-paginate";
+export default function Pagination({ pageNumber, info, updatePageNumber }) {
+  /* let pageChange = (data) => {
+    updatePageChange(data.selected+1);
+  }; */
 
-export default function Pagination() {
   return (
     <>
       <div>

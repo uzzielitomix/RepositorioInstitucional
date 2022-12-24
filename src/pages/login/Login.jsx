@@ -1,36 +1,49 @@
 import { useEffect, useState } from "react";
-
+import {URL_BASE} from "../../config/URL_BASE";
 import { Link } from "react-router-dom";
 import "./Login.css";
 import logo from "./itszlogo.png";
 export default function Login() {
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-
-  const data = {
-    email: email,
-    password: password,
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const emptyValidate = () => {
+    if (email.trim() === '') {
+      alert('el email no puede estar vacio');
+      
+    }
+    if (password.trim() === '') {
+      alert('El campo contraseña no puede estrar vacio');
+    }
   };
-  function onPressLogin(e) {
+  const onPressLogin = async (e) => {
     e.preventDefault();
-    const url =
-    "https://6308-187-146-55-44.ngrok.io/api/auth/login/"
-
-    fetch(url, {
-      method: "POST", // or 'PUT'
+    emptyValidate();
+    const url = `${URL_BASE}/auth/login/`;
+    var data = {
+      email: email,
+      password: password,
+    };
+    const response = await fetch(url, {
+      method: 'POST', // or 'PUT'
+      body: JSON.stringify(data), // data can be `string` or {object}!
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("Success:", data);
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
-  }
+    });
+
+    const respuesta = await response.json();
+    console.log(respuesta);
+    if (respuesta.email === email) {
+      localStorage.setItem('token', respuesta.token)
+      /* navigation.navigate('Home'); */
+      window.location="/home"
+    }else{
+      alert(respuesta.email);
+    }
+    if (respuesta.detail) {
+      alert(respuesta.detail);
+    }
+  };
   const onChangeMail = (e) => {
     setEmail(e.target.value);
   };
@@ -49,17 +62,19 @@ export default function Login() {
       <div className="login-page">
         <div className="form">
           <form className="login-form" method="post">
+            <label htmlFor="email">Correo electronico</label>
             <input
               type="email"
-              placeholder="correo"
+              placeholder="Correo"
               name="email"
               value={email}
               onChange={onChangeMail}
             />
 
+            <label htmlFor="password">Contraseña</label>
             <input
               type="password"
-              placeholder="contraseña"
+              placeholder="Contraseña"
               name="password"
               value={password}
               onChange={onChangePassword}
@@ -69,10 +84,13 @@ export default function Login() {
               <button>Ingresar</button>
             </Link>
             <p className="message">
-              <a>¿No tienes cuenta?</a>
+              <a href="#">¿No tienes cuenta?</a>
              <Link to={"/registro"}>
             
                 <a>Registrarse</a>
+              </Link>
+              <Link to={"/Recuperar"}>
+                <p>Olvide mi contraseña</p>
               </Link>
 
             </p>
@@ -103,7 +121,7 @@ export default function Login() {
 
           <div className="text-center p-3">
             © 2022 Copyright:
-            <a className="text-white" href="#"></a>
+            {/* <a className="text-white" href="#"></a> */}
           </div>
         </footer>
       </div>

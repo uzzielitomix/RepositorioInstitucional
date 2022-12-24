@@ -1,35 +1,52 @@
+import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { URL_BASE } from "../../config/URL_BASE";
+import PDFViewer from "pdf-viewer-reactjs";
 import "./Detalles.css";
 export default function Detalles() {
+  const { id } = useParams();
+  console.log(id);
+  const [data, setData] = useState({});
+  const getLibro = async () => {
+    let token = localStorage.getItem("token");
+    const url = `${URL_BASE}/archivo/${id}`;
+    const solicitud = await fetch(url, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+    });
+    const respuesta = await solicitud.json();
+    console.log(respuesta);
+    setData(respuesta);
+  };
+  useEffect(() => {
+    //use efect para que cuando se carge el componentete se ejecute la funcion posFata
+    getLibro();
+  }, []);
   return (
     <>
-      <div class="book-detail">
-        <div class="cover">
-          <div class="img-wrapper">
-            <img
-              src={
-                "https://img.sj33.cn/uploads/allimg/201109/20110905152335206.jpg"
-              }
-            />
+      <div className="book-detail">
+        <div className="cover">
+          <div className="img-wrapper">
+            <img alt="tarjeta" src={data.imagen} />
           </div>
-          <div class="author-wrapper">
-            <img src="https://tse1-mm.cn.bing.net/th/id/OIP-C.VgEAgFHiP28OoY6aR5jfDgAAAA?pid=ImgDet&rs=1" />
-            <span>Oscar Wilde</span>
+          <div className="author-wrapper">
+            <img alt="tarjeta" src={data.imagen} />
+            <span>{data.autor}</span>
           </div>
         </div>
 
-        <div class="content">
-          <h2>BREEDING BIO INSECURITY</h2>
-          <p>
-            The Picture of Dorian Gray is a philosophical novel by the writer
-            Oscar Wilde, first published complete in the July 1890 issue of
-            Lippincott's Monthly Magazine. The magazine's editor feared the
-            story was indecent, and without Wilde's knowledge, deleted roughly
-            five hundred words before publication. Despite that censorship, The
-            Picture of Dorian Gray offended ...
-          </p>
-          <button>leer</button>
+        <div className="content">
+          <h2>{data.titulo}</h2>
+          <p>{data.resumen}</p>
+          <button>
+            <a href={data.pdf} target="_blank">Leer</a>
+          </button>
         </div>
       </div>
+      
     </>
   );
 }
