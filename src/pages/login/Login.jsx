@@ -54,7 +54,7 @@ export default function Login() {
     <>
       <div className="nav">
         <br />
-        <h1>Repositorio ITSZ</h1>
+        <h1 ><center>REPOSITORIO INSTITUCIONAL</center> </h1>
       </div>
       <br />
       <br />

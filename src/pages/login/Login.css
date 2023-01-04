@@ -8,17 +8,17 @@
 .form {
   position: relative;
   z-index: 1;
-  background: #ffffff;
+  background: #f7f5f5;
   max-width: 360px;
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 20px 0 rgba(115, 5, 240, 0.2), 0 5px 5px 0 rgba(20, 5, 228, 0.452);
 }
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #f2f2f2;
+  background: #f5f2f2;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
@@ -30,11 +30,11 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #453863;
+  background: #710486;
   width: 100%;
   border: 0;
   padding: 15px;
-  color: #ffffff;
+  color: #fcfcfc;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -43,11 +43,11 @@
 .form button:hover,
 .form button:active,
 .form button:focus {
-  background: #7a4780;
+  background: #4608d4;
 }
 .form .message {
   margin: 15px 0 0;
-  color: #0f0d0d;
+  color: #070000;
   font-size: 12px;
 }
 .form .message a {
@@ -78,7 +78,7 @@
   padding: 0;
   font-size: 36px;
   font-weight: 300;
-  color: #1a1a1a;
+  color: #0c0101;
 }
 .container .info span {
   color: #4d4d4d;
@@ -89,10 +89,10 @@
   text-decoration: none;
 }
 .container .info span .fa {
-  color: #ef3b3a;
+  color: #520202;
 }
 body {
-  background: #f6f6f8; /* fallback for old browsers */
+  background: #0d0d99; /* fallback for old browsers */
 
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -104,7 +104,7 @@ body {
   text-align: center;
   background-color: #7a4780;
   
-  color: white;
+  color: rgb(44, 7, 211);
   width: 100%;
 }
 .nav h1{
@@ -112,7 +112,7 @@ body {
 }
 
 .footer {
-  background-color: #7a4780;
-  color: rgb(255, 255, 255);
-  text-align: center;
+ background-color: #710486;
+ color: #710486;
+ text-align: center;
 }

@@ -7,9 +7,11 @@ import { URL_BASE } from "../../../../config/URL_BASE";
 
 export default function Body() {
   const [data, setData] = useState([]);
+  const [info, setInfo] = useState({});
+  const [pageNumber, updatePageNumber] = useState(1);
   const getLibros = async () => {
     let token = localStorage.getItem("token");
-    const URL = `${URL_BASE}/archivo/`;
+    const URL = `${URL_BASE}/archivo/?page=${pageNumber}`;
     const solicitud = await fetch(URL, {
       method: "GET",
       headers: {
@@ -19,6 +21,7 @@ export default function Body() {
     });
     const respuesta = await solicitud.json();
     console.log(respuesta);
+    setInfo(respuesta.info);
     setData(respuesta.results);
   };
   useEffect(() => {
@@ -47,7 +50,11 @@ export default function Body() {
         </>
       ))}
 
-      <Pagination></Pagination>
+      <Pagination
+        info={info}
+        pageNumber={pageNumber}
+        updatePageNumber={updatePageNumber}
+      ></Pagination>
     </>
   );
 }

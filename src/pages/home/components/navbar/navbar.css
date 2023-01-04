@@ -40,13 +40,13 @@ nav ul li a:visited {
   display: block;
   padding: 0 20px;
   line-height: 70px;
-  background: #262626;
-  color: #ffffff;
+  background: #ffffff;
+  color: #fcfcfc;
   text-decoration: none;
 }
 nav ul li a:hover,
 nav ul li a:visited:hover {
-  background: #2581DC;
+  background: #062b50;
   color: #ffffff;
 }
 nav ul li a:not(:only-child):after,

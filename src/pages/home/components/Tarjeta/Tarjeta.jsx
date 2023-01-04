@@ -1,24 +1,105 @@
 import "./Tarjeta.css";
 import { Link } from "react-router-dom";
-export default function Tarjeta({ titulo, resumen, imagen,id}) {
+export default function Tarjeta({ titulo, resumen, imagen, id }) {
   return (
     <>
-      <div className="cards">
-        <div className="card-wrapper">
-          <div className="card">
-            <img alt="" src={imagen} />
-            <div className="content">
-              <h5 className="title">{titulo}</h5>
-              <p className="text">
-                {resumen}
-              </p>
-              <Link to={`/Detalles/${id}`}>
-                <button>Detalles</button>
-              </Link>
+      <div className="main">
+        <h1>Responsive Card Grid Layout</h1>
+        <ul className="cards">
+          <li className="cards_item">
+            <div className="card">
+              <div className="card_image">
+                <img alt="" src="https://picsum.photos/500/300/?image=10" />
+              </div>
+              <div className="card_content">
+                <h2 className="card_title">Card Grid Layout</h2>
+                <p className="card_text">
+                  Demo of pixel perfect pure CSS simple responsive card grid
+                  layout
+                </p>
+                <button className="btn card_btn">Read More</button>
+              </div>
             </div>
-          </div>
-        </div>
+          </li>
+          <li className="cards_item">
+            <div className="card">
+              <div className="card_image">
+                <img alt="" src="https://picsum.photos/500/300/?image=5" />
+              </div>
+              <div className="card_content">
+                <h2 className="card_title">Card Grid Layout</h2>
+                <p className="card_text">
+                  Demo of pixel perfect pure CSS simple responsive card grid
+                  layout
+                </p>
+                <button className="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li className="cards_item">
+            <div className="card">
+              <div className="card_image">
+                <img alt="" src="https://picsum.photos/500/300/?image=11" />
+              </div>
+              <div className="card_content">
+                <h2 className="card_title">Card Grid Layout</h2>
+                <p className="card_text">
+                  Demo of pixel perfect pure CSS simple responsive card grid
+                  layout
+                </p>
+                <button className="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li className="cards_item">
+            <div className="card">
+              <div className="card_image">
+                <img alt="" src="https://picsum.photos/500/300/?image=14" />
+              </div>
+              <div className="card_content">
+                <h2 className="card_title">Card Grid Layout</h2>
+                <p className="card_text">
+                  Demo of pixel perfect pure CSS simple responsive card grid
+                  layout
+                </p>
+                <button className="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li className="cards_item">
+            <div className="card">
+              <div className="card_image">
+                <img alt="" src="https://picsum.photos/500/300/?image=17" />
+              </div>
+              <div className="card_content">
+                <h2 className="card_title">Card Grid Layout</h2>
+                <p className="card_text">
+                  Demo of pixel perfect pure CSS simple responsive card grid
+                  layout
+                </p>
+                <button className="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+          <li className="cards_item">
+            <div className="card">
+              <div className="card_image">
+                <img alt="" src="https://picsum.photos/500/300/?image=2" />
+              </div>
+              <div className="card_content">
+                <h2 className="card_title">Card Grid Layout</h2>
+                <p className="card_text">
+                  Demo of pixel perfect pure CSS simple responsive card grid
+                  layout
+                </p>
+                <button className="btn card_btn">Read More</button>
+              </div>
+            </div>
+          </li>
+        </ul>
       </div>
+
+      <h3 className="made_by">Made with ♡</h3>
     </>
   );
 }

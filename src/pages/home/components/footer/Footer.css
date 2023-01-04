@@ -1,7 +1,55 @@
-.footer{
-    background-color: #7a4780;
-    color: #7a4780;
-    text-align: center;
-    
-    
-    }
+body
+{
+  background-color: rgb(17, 1, 16);
+}
+li
+{
+  list-style-type: none;
+  margin-left: 1vw;
+}
+
+li:first-child
+{
+  margin:0;
+}
+
+footer
+{
+  padding-top: 5vh;
+  padding-bottom: 2vh;
+}
+
+.content
+{
+  height: 50vh;
+  background-color: rgb(92, 5, 73);
+}
+
+.container
+{
+  background-color: rgb(104, 4, 104);
+}
+
+.copyright,  .impressum
+{
+  text-align: center;
+}
+
+.logo
+{
+  height: 8vh;
+}
+
+@media (max-width: 768px) 
+{
+  li
+  {
+    margin-left: 0;
+    margin-bottom: 1vh;
+  }
+  
+  .sozial
+  {
+    margin-bottom: 1vh;
+  }
+}
